@@ -10,6 +10,28 @@ The goal of missingdata581 is to let you subset missing values by person
 and by variable. There is a Shiny application that lets you interact in
 real-time with missing data.
 
+The purpose of my project is to address missing data. I work as a data
+manager, and one of the most prevalent issues in any study, especially
+clinical studies, is handling missing data. A lot of analysis depends on
+having all covariates known, but in practice, this almost never happens,
+especially as the sample size increases.
+
+If a study has relatively few subjects, it is not too cumbersome to
+manually look for missing values. However, as the size of the study
+increases, manually checking for missing values gets much more
+difficult.
+
+R has several functions that help address missing data, like is.na(),
+complete.cases(), and na.omit(). However, these have to be manipulated
+to get useful information, like the total number of missing values a
+person has.
+
+Something that I have found particularly useful through my work is
+knowing the number of missing values per person and a list of all
+missing variables. With the package I have made, this can be found very
+easily; with the Shiny application, the number of missing values,
+variables, and individuals can be updated in real-time.
+
 ## Installation
 
 You can install the released version of missingdata581 from
@@ -18,39 +40,3 @@ You can install the released version of missingdata581 from
 ``` r
 install.packages("missingdata581")
 ```
-
-## Example
-
-This is a basic example which shows you how to solve a common problem:
-
-``` r
-library(missingdata581)
-## basic example code
-```
-
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
-
-``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
-```
-
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date. `devtools::build_readme()` is handy for this. You could also
-use GitHub Actions to re-render `README.Rmd` every time you push. An
-example workflow can be found here:
-<https://github.com/r-lib/actions/tree/master/examples>.
-
-You can also embed plots, for example:
-
-<img src="man/figures/README-pressure-1.png" width="100%" />
-
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub and CRAN.
