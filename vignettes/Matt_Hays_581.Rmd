@@ -18,3 +18,98 @@ knitr::opts_chunk$set(
 ```{r setup}
 library(missingdata581)
 ```
+
+## PBHL-B 581 Vignette
+Motivation
+
+The purpose of my project is to address missing data. I work as a data manager, and one of the most prevalent issues in any study, especially clinical studies, is handling missing data. A lot of analysis depends on having all covariates known, but in practice, this almost never happens, especially as the sample size increases. 
+
+If a study has relatively few subjects, it is not too cumbersome to manually look for missing values. However, as the size of the study increases, manually checking for missing values gets much more difficult.
+
+R has several functions that help address missing data, like is.na(), complete.cases(), and na.omit(). However, these have to be manipulated to get useful information, like the total number of missing values a person has. 
+
+Something that I have found particularly useful through my work is knowing the number of missing values per person and a list of all missing variables. With the package I have made, this can be found very easily; with the Shiny application, the number of missing values, variables, and individuals can be updated in real-time. 
+
+##Function Demonstrations
+All functions can be found in the functions.R file.
+
+The first function I will be demonstrating is the ind() function. This is the individualize function. It creates a new column in the first spot, names it "individual", and assigns to equal the row number. This gives each row an observation number that is easily manipulated, and it creates an easily-called column to be used with other functions. The output is only meaningful if the observation number is outputted as well. Here, I am using a dataset called teststroke. The stroke dataset comes from a free online database. Teststroke is similar, but has fewer rows and more NA's inserted so I can better demonstrate the functions. Both will be uploaded to Canvas if the reader wants to replicate results. 
+
+Here, we will see what ind() does. 
+```{r ind}
+head(teststroke,10)
+dt <- ind(teststroke)
+head(dt,10)
+```
+
+The desired column has been made. This will allow us to use the other functions included in the package. We will reference dt, since this is the dataset we just made that includes the new column. The next function we will look at is missing_k(). 
+
+```{r missing_k}
+missing_k(dt, 1)
+missing_k(dt, 6)
+missing_k(dt, 4)
+```
+
+Here, we can see that the function takes in an individualized dataset and outputs all individuals that are missing the specified number of variables. This is very helpful when assessing a dataset. It makes it easy to reference the original dataset and look into the missingness. We can see that no individual is missing exactly 6 variables. 
+
+
+
+Often times, you want to exclude individuals with more than k missing values from analysis. The missing_al_k() function is very similar to the missing_k() function, but it uses "at least" logic. 
+
+```{r missing_al_k}
+missing_al_k(dt, 1)
+missing_al_k(dt, 6)
+```
+We can see who is missing at least 1 observation, at least 6 observations, and so on. This function also includes the individual number. Individual 5 is missing 7 variables. 
+
+
+
+Next, I will discuss the missoutput() function. This builds upon the missing_al_k() function, but it adds a column that lists all missing variables. 
+```{r missoutput}
+missoutput(dt, 5)
+```
+We can see that individual 12 has missing values for hypertension, heart_disease, ever_married, work_type, and Residence_type. 
+
+Rather than sort by number of missing values, it may be desirable to search for specific covariates. This is especially true for primary outcomes. The missvar() function does exactly this. 
+```{r missvar}
+missvar(dt, c(5,7))
+missvar(dt, c("age", "bmi"))
+```
+We can see who is missing columns 5 and 7 both: individuals 2, 16, and 32. 
+We can also see who is missing the variables age and bmi. It appears subject 16 is missing those values. 
+
+
+```{r prompt}
+df <- prompt(dt, c(1,2,4,15), variables = c(1,2,5,7,9))
+read.delim(file = "report.txt", header = FALSE, sep = "", dec = ".")
+```
+
+
+When we run the prompt, we can select the individuals and the variables we want to include. This function will create a text file and put it in your directory. The text file contains R Markdown code that can be copied and pasted to easily make an R Markdown report. The formatting looks off in the R Markdown output, but in the .txt file, it is correct. I included the read.delim() function to show that a file called report.txt was created.
+
+
+##Shiny Application
+
+My Shiny application lets you filter in real-time for missing values. 
+You can filter by everyone at once, or you can look at just one individual. You can filter by variables to see which individuals have missed certain questions. You can change the number of missing values when sorting by all. 
+
+I made sure to always print the individual's number so it is easy to trace it back to the source data. This feature will be especially helpful in my daily work life. 
+
+
+##Future Work to be Completed
+
+This package took a long time to make, but it is far from optimized. I'm sure there are sleeker ways of programming some of the functions. One thing I considered was combining the missing_k() and missing_al_k() functions to a single function with an options like ge=TRUE by default, signifying to use greater than or equal to version as opposed to the exactly equal to version. 
+
+
+The Shiny application can also be made better. 
+I was struggling to get the initial selection above the chart. Having to scroll down before each selection can be tedious. 
+
+I also considered adding a submit button, but I didn't know how the conditional panels worked with that. If I switched the type of output from, say, "everyone" to "variable", would the variable options come up immediately? It only makes sense/functions if they do come up immediately. If they need to come up immediately anyway, then why include a button? 
+
+Another feature that would be handy is making it able to handle selecting multiple individuals at the same time, but because different variables are missing for each person, this would effect what would need printed. My functions are not written to output data with different variable names in a table.
+
+I'm sure there is a better way to design the overall layout, but I am very content with what I have done. I have never worked with Shiny before, and being able to get to my end goal was very rewarding. 
+
+In my original proposal, I mentioned maybe including a function that filled in missing values. I did not have the time to include this feature, but I think it would go hand-in-hand with the purpose of the package. 
+
+I think this package will be helpful to me. If I saw this five months ago, I never would have believed that I was able to make it. Thank you, Professor, for all the help this semester!

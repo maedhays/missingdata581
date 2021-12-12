@@ -1,0 +1,30 @@
+ 
+We are checking the missing data for the following people: 
+1, 2, 4, 15
+and for the following variables: 
+individual, ï..id, hypertension, ever_married, Residence_type
+The corresponding column numbers are: 
+1, 2, 5, 7, 9
+ 
+ Here are the people with no missing values from the given variables.
+```{r loading, include = FALSE}
+source('functions.R')
+source('datasets.R')
+library(dplyr)
+```
+ 
+```{r nomissing, echo=FALSE}
+peop = c(copy individual numbers here)
+variables = c(copy column numbers here)
+df <- prompt(dframe, peop, variables)
+df[complete.cases(df),]
+```
+ 
+ 
+ 
+Here are the people missing some values from the given variables.
+```{r missing, echo=FALSE}
+df[!complete.cases(df),]
+```
+ 
+ 
