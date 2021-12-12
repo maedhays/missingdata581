@@ -30,7 +30,20 @@ R has several functions that help address missing data, like is.na(), complete.c
 
 Something that I have found particularly useful through my work is knowing the number of missing values per person and a list of all missing variables. With the package I have made, this can be found very easily; with the Shiny application, the number of missing values, variables, and individuals can be updated in real-time. 
 
-##Function Demonstrations
+## Installation
+
+The package can be installed with the following command: 
+remotes:: install_github("maedhays/missingdata581")
+The remotes package has the install_github() function.
+
+My GitHub page can be accessed with the following URL: 
+https://github.com/maedhays/missingdata581.git
+This is also where the r code for the functions and the Shiny Application are. 
+
+
+This package includes all the functions and built-in R datasets that I use as examples. 
+
+## Function Demonstrations
 All functions can be found in the functions.R file.
 
 The first function I will be demonstrating is the ind() function. This is the individualize function. It creates a new column in the first spot, names it "individual", and assigns to equal the row number. This gives each row an observation number that is easily manipulated, and it creates an easily-called column to be used with other functions. The output is only meaningful if the observation number is outputted as well. Here, I am using a dataset called teststroke. The stroke dataset comes from a free online database. Teststroke is similar, but has fewer rows and more NA's inserted so I can better demonstrate the functions. Both will be uploaded to Canvas if the reader wants to replicate results. 
@@ -96,7 +109,7 @@ You can filter by everyone at once, or you can look at just one individual. You 
 I made sure to always print the individual's number so it is easy to trace it back to the source data. This feature will be especially helpful in my daily work life. 
 
 
-##Future Work to be Completed
+## Future Work to be Completed
 
 This package took a long time to make, but it is far from optimized. I'm sure there are sleeker ways of programming some of the functions. One thing I considered was combining the missing_k() and missing_al_k() functions to a single function with an options like ge=TRUE by default, signifying to use greater than or equal to version as opposed to the exactly equal to version. 
 
