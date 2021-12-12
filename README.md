@@ -34,9 +34,9 @@ variables, and individuals can be updated in real-time.
 
 ## Installation
 
-You can install the released version of missingdata581 from
-[CRAN](https://CRAN.R-project.org) with:
+You can install the released version of missingdata581 from GitHub
+<https://github.com/maedhays/missingdata581> with:
 
 ``` r
-reports:: install_github("maedhays/missingdata581")
+xfun:: install_github("maedhays/missingdata581")
 ```
