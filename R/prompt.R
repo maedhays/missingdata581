@@ -43,9 +43,9 @@ prompt<- function(data, people="all", variables ="all"){
 
                    " Here are the people with no missing values from the given variables.",
                    "```{r loading, include = FALSE}",
-                   "source('functions.R')",
-                   "source('datasets.R')",
+                   "library(missingdata581)",
                    "library(dplyr)",
+                   "dframe <- YOUR INDIVIDUALIZED DATASET HERE",
                    "```",
                    " ",
 
