@@ -38,5 +38,5 @@ You can install the released version of missingdata581 from
 [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
-install.packages("missingdata581")
+install_github("maedhays/missingdata581")
 ```
