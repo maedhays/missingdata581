@@ -12,3 +12,5 @@ License: GPL-3
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.2
+URL: https://github.com/maedhays/missingdata581
+BugReports: https://github.com/maedhays/missingdata581/issues
