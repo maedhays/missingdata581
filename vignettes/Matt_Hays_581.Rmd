@@ -100,8 +100,8 @@ read.delim(file = "report.txt", header = FALSE, sep = "", dec = ".")
 
 When we run the prompt, we can select the individuals and the variables we want to include. This function will create a text file and put it in your directory. The text file contains R Markdown code that can be copied and pasted to easily make an R Markdown report. The formatting looks off in the R Markdown output, but in the .txt file, it is correct. I included the read.delim() function to show that a file called report.txt was created.
 
-
-##Shiny Application
+ 
+## Shiny Application
 
 My Shiny application lets you filter in real-time for missing values. 
 You can filter by everyone at once, or you can look at just one individual. You can filter by variables to see which individuals have missed certain questions. You can change the number of missing values when sorting by all. 
