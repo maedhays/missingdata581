@@ -1,0 +1,20 @@
+---
+title: "Matt_Hays_581 Vignette"
+author: "Matt Hays"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Matt Hays 581 Vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(missingdata581)
+```

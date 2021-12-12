@@ -12,6 +12,7 @@
 #' @export
 #'
 #' @examples
+#' prompt(iris, c(2,4,5,6,7,8), c(1,2,3))
 prompt<- function(data, people="all", variables ="all"){
   if(people[1]=="all"){
     peoplelist<-'everyone'

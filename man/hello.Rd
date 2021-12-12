@@ -10,7 +10,7 @@ hello(x)
 \item{x}{The name of the person to say hi to}
 }
 \value{
-The otuput from \code{\link{print}}
+The output from \code{\link{print}}
 }
 \description{
 My Hello World Function

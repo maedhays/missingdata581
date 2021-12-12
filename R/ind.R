@@ -6,6 +6,7 @@
 #' @export
 #'
 #' @examples
+#' ind(iris)
 ind <- function(data){
   data$individual <- seq(1:nrow(data))
   #I chose the name individual because it is long and rarely used

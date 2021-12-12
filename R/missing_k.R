@@ -3,10 +3,11 @@
 #' @param .data dataset of interest
 #' @param k number of missing values
 #'
-#' @return individuals who are missing k values
+#' @return list of individuals who are missing k values
 #' @export
 #'
 #' @examples
+#' missing_k(iris, k=2)
 missing_k <- function(.data, k=0){
   nmissing <- rep(0, nrow(.data))
   for (i in 1:nrow(.data)){

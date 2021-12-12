@@ -1,12 +1,13 @@
 #' This will output all individuals that are missing variables of interest
 #'
 #' @param data dataset of interest
-#' @param colno columns of interest
+#' @param colno columns of interest c(i,j,...)
 #'
-#' @return all individuals who are missing data in specified columns
+#' @return list of all individuals missing data in specified columns
 #' @export
 #'
 #' @examples
+#' missvar(iris, c(2,4))
 missvar <- function(data, colno=c(2,3)){
   #this fixes if a string is entered as an option
   col <- seq(1:ncol(data))

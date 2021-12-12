@@ -7,11 +7,14 @@
 #' @export
 #'
 #' @examples
+#' air <- ind(airquality)
+#' missoutput(air, n=1)
 missoutput <- function (df, n=1){
   #n is the number of missing values
   falta <- missing_al_k(df, n)
   #this shows all rows with at least one missing value
   lacking <- df[!complete.cases(df),]
+
   missingq <- matrix(nrow=nrow(lacking), ncol=ncol(lacking))
   #it can only miss as many columns as are in the subsetted group
   nmiss <- seq(1:nrow(lacking))
