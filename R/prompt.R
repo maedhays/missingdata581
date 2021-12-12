@@ -45,7 +45,7 @@ prompt<- function(data, people="all", variables ="all"){
                    "```{r loading, include = FALSE}",
                    "library(missingdata581)",
                    "library(dplyr)",
-                   "dframe <- YOUR INDIVIDUALIZED DATASET HERE",
+                   "dframe <- ind(YOUR INDIVIDUALIZED DATASET HERE)",
                    "```",
                    " ",
 

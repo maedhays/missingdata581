@@ -1,3 +1,14 @@
+---
+title: "debug"
+author: "Matt Hays"
+date: "12/12/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+ 
  
 We are checking the missing data for the following people: 
 1, 2, 4, 5
@@ -10,12 +21,12 @@ The corresponding column numbers are:
 ```{r loading, include = FALSE}
 library(missingdata581)
 library(dplyr)
-dframe <- YOUR INDIVIDUALIZED DATASET HERE
+dframe <- ind(teststroke)
 ```
  
 ```{r nomissing, echo=FALSE}
-peop = c(copy individual numbers here)
-variables = c(copy column numbers here)
+peop = c(1, 2, 4, 5)
+variables = c(1, 4, 6, 7)
 df <- prompt(dframe, peop, variables)
 df[complete.cases(df),]
 ```
