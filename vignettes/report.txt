@@ -1,16 +1,16 @@
  
 We are checking the missing data for the following people: 
-1, 2, 4, 5
+1, 2, 4, 15
 and for the following variables: 
-individual, age, heart_disease, ever_married
+individual, ï..id, hypertension, ever_married, Residence_type
 The corresponding column numbers are: 
-1, 4, 6, 7
+1, 2, 5, 7, 9
  
  Here are the people with no missing values from the given variables.
 ```{r loading, include = FALSE}
 library(missingdata581)
 library(dplyr)
-dframe <- YOUR INDIVIDUALIZED DATASET HERE
+dframe <- ind(YOUR INDIVIDUALIZED DATASET HERE)
 ```
  
 ```{r nomissing, echo=FALSE}
