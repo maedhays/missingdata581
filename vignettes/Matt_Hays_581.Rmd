@@ -33,7 +33,7 @@ Something that I have found particularly useful through my work is knowing the n
 ## Installation
 
 The package can be installed with the following command: 
-remotes:: install_github("maedhays/missingdata581")
+xfun:: install_github("maedhays/missingdata581")
 The remotes package has the install_github() function.
 
 My GitHub page can be accessed with the following URL: 
